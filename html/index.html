@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="http://www.alessandroberti.it/pm4py-tool/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://www.alessandroberti.it/pm4py-tool/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="http://www.alessandroberti.it/pm4py-tool/css/bootstrap-reboot.min.css">
+        <script type="text/javascript" src="http://www.alessandroberti.it/pm4py-tool/js/jquery-3.5.0.js"></script>
+        <script type="text/javascript" src="http://www.alessandroberti.it/pm4py-tool/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://www.alessandroberti.it/pm4py-tool/js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+          <template v-for="(child, index) in children">
+              <component :is="child" :key="child.name"></component>
+          </template>
+        </div>
+        <link rel="stylesheet" type="text/css" href="http://www.alessandroberti.it/pm4py-tool/0.1/css/pm4py-tool.css">
+        <script type="text/javascript" src="http://www.alessandroberti.it/pm4py-tool/0.1/js/app-main.js"></script>
+        <script type="text/javascript" src="http://www.alessandroberti.it/pm4py-tool/0.1/js/pm4py-calls.js"></script>
+        <script type="text/javascript" src="components/xes-viewer.js"></script>
+        <script type="text/javascript">
+            //let log = Execute("pm4py.objects.log.importer.xes.factory.apply", ["C:/running-example.xes"], {});
+            let log = GetObjectFromName("running-example-log");
+            let log_repr = Repr(log, "xes");
+            InitializeXesViewer(log_repr, name="xesViewer");
+
+            //let acceptingPetriNet = Execute("pm4py.algo.discovery.inductive.factory.apply", [log], {}, suggestedType="AcceptingPetriNet");
+            //let netImFm = GetChilds(acceptingPetriNet);
+            //console.log(netImFm);
+            //let net = netImFm[0];
+            //let im = netImFm[1];
+            //let fm = netImFm[2];
+            //let aligned_traces = Execute("pm4py.algo.conformance.alignments.factory.apply", [log, net, im, fm], {});
+            //console.log(aligned_traces);
+        </script>
+    </body>
+</html>
